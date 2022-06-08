@@ -45,7 +45,7 @@
             }
             else
             {
-                echo "Vous ne pouvez pas modifier le nbr participant maximum!";
+                echo "Vous ne pouvez pas modifier le nombre de participant maximum!";
             }
         ?>
         </td>
@@ -119,7 +119,7 @@
 
     if (isset($_POST['Valider']))
     {
-        echo "tata";
+        
         $tab = array(           
             "nomEve"=>$_POST["nomEve"],
             "contenuEve"=>$_POST["contenuEve"], 

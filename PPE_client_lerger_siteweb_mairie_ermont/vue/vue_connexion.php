@@ -6,7 +6,7 @@
             <div class="header_connexion">Sign in</div>
             <div class="body_connexion">
                 <input class="input_connexion top_input_connexion" type="text" placeholder="Email" name="emailUser">
-                <input class="input_connexion" type="password" name="mdpUser" placeholder="Mot de pass">
+                <input class="input_connexion" type="password" name="mdpUser" placeholder="Mot de passe">
                 <div class="lien_connexion"><a href="gestion_mdp_oublie.php">Mot de pass oublié</a></div>
                 <input class="input_connexion" type="submit" name="SeConnecter" value="Se connecter">>
                 <div class="lien_connexion" style="color:black;">Vous n'avez pas le compte?</div>
@@ -17,23 +17,7 @@
     </div>
 </form>
 
-<!-- <form method="post" action="">
-    <table>
-        <tr>
-            <td>Email:</td>
-            <td><input type="text" name="emailUser"></td>
-        </tr>
-        <tr>
-            <td>MDP:</td>
-            <td><input type="password" name="mdpUser"></td>
-        </tr>
-        <tr>
-            <td><input type="reset" name="Annuler" value="Annuler"></td>
-            <td><input type="submit" name="SeConnecter" value="Se connecter"></td>
-        </tr>      
-    </table>
-</form>
-<p><a href="gestion_mdp_oublie.php">Mot de passe oublié</a></p> -->
+
 
 <?php
     if(isset($_POST['SeConnecter']))
@@ -60,7 +44,10 @@
                 
                 $_SESSION['idEmploye']=$unEmploye['idEmploye'];
                 $_SESSION['idServiceEmploye']=$unEmploye['idServiceEmploye'];
+                
+                echo  $_SESSION['idServiceEmploye'];
 
+                
                 // Fonction de redirection (regarder dans function.php)                
                 if($_GET['page'] != 'connexion')
                     redirect($_SERVER['REQUEST_URI']);

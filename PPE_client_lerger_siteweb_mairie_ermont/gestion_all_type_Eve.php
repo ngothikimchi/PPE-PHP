@@ -1,6 +1,9 @@
 <?php
     require_once("header.php");
-    if(!isset($_SESSION['role']) || $_SESSION['role'] != '2')
+    if(!isset($_SESSION['role']) || $_SESSION['role'] != '2'
+    || !isset($_SESSION['idServiceEmploye']) 
+	|| $_SESSION['idServiceEmploye'] != '2'
+    )
     {
         require_once("vue/vue_connexion.php");     
         return;

@@ -61,7 +61,7 @@
            );
     
             $unControleur->insert ($tab); 
-            echo "Votre demande a été envoyé";
+            echo "Votre demande a été envoyée";
         }
         else{
             

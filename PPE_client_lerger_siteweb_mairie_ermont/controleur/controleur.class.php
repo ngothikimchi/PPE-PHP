@@ -48,6 +48,10 @@
 		{
 			return $this->unModele->verifiAge();
 		}
+		public function countCitoyenDemande($chaine, $where)
+		{
+			return $this->unModele->countCitoyenDemande($chaine, $where);
+		}
 	}
 ?>
 

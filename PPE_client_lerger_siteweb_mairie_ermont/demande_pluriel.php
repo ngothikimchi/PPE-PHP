@@ -42,7 +42,7 @@ if (isset($_POST['Valider'])  && isset($_GET['idTypeDem']))
     //si dans le cas de demander mariage, verifier les status les deux 
     if($typeDemande == 1)
     {
-        if($statutCit1 =="Marié(e)" || $statutCit2 =="Marié(e)")
+        if($statutCit1 =="Marie(e)" || $statutCit2 =="Marie(e)")
         {
             echo "<div class='notification'>Votre status ne permettent pas de demander ce type de service!!</div>";
             return;
@@ -51,7 +51,7 @@ if (isset($_POST['Valider'])  && isset($_GET['idTypeDem']))
     //si dans le cas de divorce
     if($typeDemande == 5)
     {
-        if($statutCit1 !=="Marié(e)" || $statutCit2 !=="Marié(e)")
+        if($statutCit1 !=="Marie(e)" || $statutCit2 !=="Marie(e)")
         {
             echo "<div class='notification'>Votre status ne permettent pas de demander ce type de service divorce!!</div>";
             return;
@@ -60,7 +60,7 @@ if (isset($_POST['Valider'])  && isset($_GET['idTypeDem']))
     //si dans le cas de PAcs
     if($typeDemande == 4)
     {
-        if($statutCit1 !=="Célibataire" || $statutCit2 !=="Célibataire")
+        if($statutCit1 !=="Celibataire" || $statutCit2 !=="Celibataire")
         {
             echo "<div class='notification'>Votre status ne permettent pas de demander ce type de service PACs!!</div>";
             return;

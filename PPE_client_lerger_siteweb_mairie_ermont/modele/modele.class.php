@@ -140,6 +140,23 @@
 			//retourner un entier et non un tableu
 			return $select->fetch()["age_limit"]; 
 		}
+
+		
+		public function countCitoyenDemande($chaine, $where)
+		{
+			$champs = array(); 
+			$donnees = array(); 
+			foreach ($where as $cle=>$valeur)
+			{
+				$champs[] = $cle . "= :".$cle; 
+				$donnees[":".$cle]= $valeur; 
+			}
+			$chaineWhere = implode("  and ", $champs);
+			$requete ="select count(".$chaine.") as nb from  ".$this->uneTable." where ".$chaineWhere;
+			$select = $this->pdo->prepare ($requete); 
+			$select->execute($donnees); 
+			return $select->fetch ()['nb'];
+		}
 		
 	}
 ?>

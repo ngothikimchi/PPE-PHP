@@ -57,10 +57,10 @@
             <td>Situation familiale</td>
             
             <td><select name="situationFamilialeCit">
-                <option value="Célibataire">Célibataire</option>
-                <option value="Marié(e)">Marié(e)</option>
-                <option value="Divorcé(e)">Divorcé(e)</option>
-                <option value="Pacsé(e)">Pacsé(e)</option>
+                <option value="Celibataire">Célibataire</option>
+                <option value="Marie(e)">Marié(e)</option>
+                <option value="Divorce(e)">Divorcé(e)</option>
+                <option value="Pacse(e)">Pacsé(e)</option>
                 </select>
             
             </td>

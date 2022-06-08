@@ -3,12 +3,12 @@
 <table>
     <tr>
         <td>Nom : </td>
-        <td><input type="text" name="nomCit"
+        <td><input type="text" name="nomCit" required="required"
 			value="<?php if ($unCitoyen!=NULL) echo $unCitoyen['nomCit']; ?>"></td>
     </tr>
     <tr>
         <td>Prénom : </td>
-        <td><input type="text" name="prenomCit"
+        <td><input type="text" name="prenomCit" required="required"
 			value="<?php if ($unCitoyen!=NULL) echo $unCitoyen['prenomCit']; ?>"></td>
     </tr>
     <tr>
@@ -22,33 +22,33 @@
     </tr>
     <tr>
         <td>Date de naissance : </td>
-        <td><input type="date" name="dateNaissCit"
+        <td><input type="date" name="dateNaissCit" required="required"
 			value="<?php if ($unCitoyen!=NULL) echo $unCitoyen['dateNaissCit']; ?>"></td>
     </tr>
     <tr>
         <td>Lieu de naissance: </td>
-        <td><input type="text" name="lieuNaissCit"
+        <td><input type="text" name="lieuNaissCit" required="required"
 			value="<?php if ($unCitoyen!=NULL) echo $unCitoyen['lieuNaissCit']; ?>"></td>
     </tr>
     <tr>
         <td>Code Postal lieu de naissance: </td>
-        <td><input type="text" name="cpLieuNaissCit"
+        <td><input type="text" name="cpLieuNaissCit" required="required"
 			value="<?php if ($unCitoyen!=NULL) echo $unCitoyen['cpLieuNaissCit']; ?>"></td>
     </tr>
     <tr>
         <td>Adresse:  </td>
-        <td><input type="text" name="adresseCit"
+        <td><input type="text" name="adresseCit" required="required"
 			value="<?php if ($unCitoyen!=NULL) echo $unCitoyen['adresseCit']; ?>"></td>
     </tr>
 
     <tr>
         <td>Ville:  </td>
-        <td><input type="text" name="villeCit"
+        <td><input type="text" name="villeCit" required="required"
 			value="<?php if ($unCitoyen!=NULL) echo $unCitoyen['villeCit']; ?>"></td>
     </tr>
     <tr>
         <td>Code Potsal  </td>
-        <td><input type="text" name="cpCit"
+        <td><input type="text" name="cpCit" required="required"
 			value="<?php if ($unCitoyen!=NULL) echo $unCitoyen['cpCit']; ?>"></td>
     </tr>
 
@@ -70,7 +70,7 @@
         <?php
             if($unCitoyen==NULL) 
             {?>
-                <input type="text" name="emailCit" value="">
+                <input type="text" name="emailCit" value="" required="required">
             <?php 
             } 
                 else echo "Vous ne pouvez changer l'email";   
@@ -86,7 +86,7 @@
             <?php
                 if($unCitoyen==NULL) 
                 {
-                    echo " <input type=\"text\" name=\"mdpUser\"value=\"\" >";
+                    echo " <input type=\"password\" onblur=\"traiterPassword()\" id=\"mdp\" name=\"mdpUser\" value=\"\"  >";
                 } 
                 else echo "Vous ne pouvez changer mot de passe";   
             ?>
@@ -107,7 +107,7 @@
     </tr>
     <tr>
         <td>Réponse : </td>
-        <td><input type="text" name="reponse"
+        <td><input type="text" name="reponse" required="required"
 			value="<?php if ($unCitoyen!=NULL) echo $unCitoyen['reponse']; ?>"></td>
     </tr>
    
@@ -161,8 +161,8 @@
 			"cpCit"=>$_POST["cpCit"],
             "situationFamilialeCit"=>$_POST["situationFamilialeCit"],
             "emailCit"=>$_POST["emailCit"],
-            "question"=>$_POST["question"],
-            "reponse"=>$_POST["reponse"]
+            "question"=>sha1($_POST["question"]),
+            "reponse"=>sha1($_POST["reponse"])
 			);
 
 		$unControleur->insert ($tab); 
@@ -176,7 +176,71 @@
         redirect("gestion_citoyen.php");
     }
 
-
-
-    
 ?>
+
+<script type="text/javascript">
+    function traiterPassword()
+        {
+            let mdp = document.getElementById("mdp").value;
+            if(mdp.length === 0)
+            {
+                alert("Veulliez de saisir votre mot de pass");
+                return;
+            }
+
+            if (mdp.length <8 || mdp.length >50)
+            {
+                alert("Votre mot de passe est trop court ou trop long");
+                return;
+            }
+
+            
+            let contientMajuscule = 0;
+            let contientMiniscule = 0;
+            let contientChiffre = 0;
+            let contientCharacterSpecial = 0;
+            for(i=0;i<mdp.length;i++)
+            {
+                let chaine1="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+                let chaine2="abcdefghijklmnopqrstuvwxyz";
+                let chaine3="01234567891";
+                let chaine4="!?@&";
+
+                if(chaine1.indexOf(mdp.charAt(i)) > -1)
+                    contientMajuscule = 1;
+
+                if(chaine2.indexOf(mdp.charAt(i)) > -1)
+                    contientMiniscule = 1;
+
+                if(chaine3.indexOf(mdp.charAt(i)) > -1)
+                    contientChiffre = 1;
+
+                if(chaine4.indexOf(mdp.charAt(i)) > -1)
+                    contientCharacterSpecial = 1;
+            }
+            
+            if(contientMajuscule === 0)
+            {
+                alert("Mdp doit contenir au moins un caractère majuscule !");
+                return;
+            }
+            if(contientMiniscule === 0)
+            {
+                alert("Mdp doit contenir au moins un caractère miniscule !");
+                return;
+            }
+            if(contientChiffre === 0)
+            {
+                alert("Mdp doit contenir au moins un chiffre !");
+                return;
+            }
+
+            if(contientCharacterSpecial === 0)
+            {
+                alert("Mdp doit contenir au moins un caractère spécial !");
+                return;
+            }
+
+        }
+
+</script>

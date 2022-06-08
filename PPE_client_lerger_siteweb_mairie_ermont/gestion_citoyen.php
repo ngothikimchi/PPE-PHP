@@ -2,11 +2,17 @@
     require_once("header.php");
     $unControleur->setTable ("citoyen");
     $lesCitoyens = $unControleur->selectAll();
-    if(!isset($_SESSION['role']) || $_SESSION['role'] != '2')
+    $num_check=0;
+    
+    if(!isset($_SESSION['role']) 
+        || $_SESSION['role'] != 2 
+        || !isset($_SESSION['idServiceEmploye']) 
+        || $_SESSION['idServiceEmploye'] != 1 )
     {
         require_once("vue/vue_connexion.php");     
         return;
     }
+
 
     $unCitoyen=null;
     
@@ -15,7 +21,7 @@
         $action = $_GET['action'];
         $idCitoyen = $_GET['idCit'];
         $where = array("idCit"=>$idCitoyen);
-
+       
         switch ($action) {
             case 'supprimer':
                 $unControleur->delete($where);

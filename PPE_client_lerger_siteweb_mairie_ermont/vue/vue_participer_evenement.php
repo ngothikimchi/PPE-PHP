@@ -17,7 +17,7 @@
     $unEveCitoyenA=$unControleur->selectWhere($chaine,$where);
     if(isset($unEveCitoyenA["idEve"]) && isset($unEveCitoyenA["idCit"]))
     {
-        echo "<div class='notification'>Vous avez déjà inscrit sur cet événement</div>";
+        echo "<div class='notification'>Vous avez déjà inscrit sur cet évènement</div>";
         return;
     }
     //check if cet evenement est sur type enfant
@@ -58,7 +58,7 @@
     //echo "enfant";    
     if($unEveEnfant["accompagnant"]==1)
     {
-        echo "<div class='notification'>Remark: accompagnement d'enfants est obligatoire </br></div>";
+        echo "<div class='notification'>Remarque: accompagnement d'enfants est obligatoire </br></div>";
     }
 
     $datenaissance=$_SESSION['dateNaissCit'];
@@ -66,10 +66,11 @@
     $datenaissance_convertir=new DateTime($datenaissance);
     $currentDate = new DateTime();
     $interval = $currentDate->diff($datenaissance_convertir);
-    if($interval->y <= $unEveEnfant["trancheAgeMin"] ||
-    $interval->y >= $unEveEnfant["trancheAgeMax"])
+    
+    if($interval->y < $unEveEnfant["trancheAgeMin"] ||
+    $interval->y > $unEveEnfant["trancheAgeMax"])
     {
-        echo "<div class='notification'>Votre age n'est pas valide pour cet évenement </div>";
+        echo "<div class='notification'>Votre age n'est pas valide pour cet évènement </div>";
         return;
     }
     $unControleur->setTable ("participer");

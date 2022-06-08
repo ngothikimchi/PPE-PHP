@@ -4,6 +4,7 @@
     <tr class="style_line">
         <td>Code Type événement : </td>
         <td><input type="text" name="codeTypeEve"
+        <?php if ($unTypeEveEnfant!=NULL) echo "disabled"; ?>
 			value="<?php if ($unTypeEveEnfant!=NULL) echo $unTypeEveEnfant['codeTypeEve']; ?>"></td>
     </tr>
 
@@ -16,18 +17,21 @@
     <tr class="style_line">
         <td>L'age minimale : </td>
         <td><input type="text" name="trancheAgeMin"
+            <?php if ($unTypeEveEnfant!=NULL) echo "disabled"; ?>
 			value="<?php if ($unTypeEveEnfant!=NULL) echo $unTypeEveEnfant['trancheAgeMin']; ?>"></td>
     </tr>
 
     <tr class="style_line">
         <td>L'age maximale : </td>
         <td><input type="text" name="trancheAgeMax"
+        <?php if ($unTypeEveEnfant!=NULL) echo "disabled"; ?>
 			value="<?php if ($unTypeEveEnfant!=NULL) echo $unTypeEveEnfant['trancheAgeMax']; ?>"></td>
     </tr>
 
     <tr class="style_line">
         <td>Accompagnant : </td>
         <td><input type="text" name="accompagnant"
+        <?php if ($unTypeEveEnfant!=NULL) echo "disabled"; ?>
 			value="<?php if ($unTypeEveEnfant!=NULL) echo $unTypeEveEnfant['accompagnant']; ?>"></td>
     </tr>
     
@@ -48,13 +52,17 @@
     {   
         $where = array("codeTypeEve"=>$_GET['codeTypeEve']);
 		$tab=array(
-           "nomTypeEve"=>$_POST["nomTypeEve"],
-            "trancheAgeMin"=>$_POST["trancheAgeMin"], 
+           "nomTypeEve"=>$_POST["nomTypeEve"]
+            /* "trancheAgeMin"=>$_POST["trancheAgeMin"], 
             "trancheAgeMax"=>$_POST["trancheAgeMax"], 
-            "accompagnant"=>$_POST["accompagnant"] 
+            "accompagnant"=>$_POST["accompagnant"]  */
 			);
-		$unControleur->update ($tab, $where); 
-		redirect("gestion_all_type_Eve.php");
+		$unControleur->update ($tab, $where);
+        
+       // print_r($where);
+
+       // print_r($tab);
+		//redirect("gestion_all_type_Eve.php");
     }
 
     if (isset($_POST['Valider']))

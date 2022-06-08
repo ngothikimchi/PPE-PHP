@@ -4,6 +4,7 @@
     <tr class="style_line">
         <td>Code Type événement : </td>
         <td><input type="text" name="codeTypeEve"
+        <?php if ($unTypeEveAdulte!=NULL) echo 'disabled' ?>
 			value="<?php if ($unTypeEveAdulte!=NULL) echo $unTypeEveAdulte['codeTypeEve']; ?>"></td>
     </tr>
 
@@ -15,7 +16,7 @@
 
    
     <tr class="style_line">
-        <td> <input style="width:50%;margin-left:20px;" type="reset" name="Annuler" value ="Annuler"> </td>
+        <td> <input style="width:50%;margin-left:20px;" type="reset" name="Annuler1" value ="Annuler"> </td>
         <td> <input style="width:50%;margin-left:40px;" type="submit" <?php if($unTypeEveAdulte!=NULL) echo 'name ="Modifier1" 
         value ="Modifier" '; else echo 'name="Valider1" value ="Valider"'; ?> > 
 		 </td>
