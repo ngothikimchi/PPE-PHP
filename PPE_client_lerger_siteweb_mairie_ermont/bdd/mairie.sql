@@ -324,7 +324,7 @@ delimiter ;
 
 insert into role values (1,"user"),(2,"admin"),(3,"editor");
 
-insert into user values (null,"a@gmail.com","123",1),(null,"b@gmail.com","123",1);
+insert into user values (null,"a@gmail.com","123",1),(null,"b@gmail.com","123",2);
 insert into user values (null,"a@ville-ermont.fr","123",2),(null,"b@ville-ermont.fr","123",2);
 insert into user values (null,"c@gmail.com","123",1);
 insert into user values (null,"d@gmail.com","123",1);

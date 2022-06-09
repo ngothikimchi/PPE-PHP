@@ -23,7 +23,7 @@
   <ul class="list-unstyled">
     <li><a href="info.php?page=solidarite" title=""><i class="fa fa-angle-double-right"></i> Solidarité</a></li>
     <li><a href="info.php?page=education" title=""><i class="fa fa-angle-double-right"></i> Education</a></li>
-    
+    <li><a href="info.php?page=mention" title=""><i class="fa fa-angle-double-right"></i> Mentions légales</a></li>
   </ul>
 </div>
 </div>

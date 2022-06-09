@@ -11,7 +11,9 @@
                 case "solidarite" : require_once("vue/vue_solidarite.php"); 	
                  break;      
                 case "education" :require_once("vue/vue_education.php"); 
-                break;    
+                break;  
+                case "mention" :require_once("vue/mention_legale.php"); 
+                break;   
                 
                 default : require_once("erreur.php"); 	
                         break;

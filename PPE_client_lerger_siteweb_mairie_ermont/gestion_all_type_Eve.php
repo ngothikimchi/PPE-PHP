@@ -60,7 +60,6 @@
                 
                 case 'modifier':
                     $unTypeEveAdulte = $unControleur->selectWhere("*", $where);
-                    print_r($unTypeEveAdulte);
                     break;
             }
         
