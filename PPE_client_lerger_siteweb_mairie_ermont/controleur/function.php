@@ -50,14 +50,14 @@ function ValiderDemandePluriel($idDemande)
     {
         $unControleur->setTable ("citoyen");
         $where = array("idCit"=>$idCit1);
-        $tab = array("situationFamilialeCit"=>"Marié(e)"
+        $tab = array("situationFamilialeCit"=>"Marie(e)"
     );
         $unControleur->update ($tab, $where);  
     
     //updatecitoyen2    
         $unControleur->setTable ("citoyen");
         $where = array("idCit"=>$idCit2);
-        $tab = array("situationFamilialeCit"=>"Marié(e)"
+        $tab = array("situationFamilialeCit"=>"Marie(e)"
         );
         $unControleur->update ($tab, $where);  
     }
@@ -66,14 +66,14 @@ function ValiderDemandePluriel($idDemande)
     {
         $unControleur->setTable ("citoyen");
         $where = array("idCit"=>$idCit1);
-        $tab = array("situationFamilialeCit"=>"Divorcé(e)"
+        $tab = array("situationFamilialeCit"=>"Divorce(e)"
     );
         $unControleur->update ($tab, $where);  
     
     //updatecitoyen2    
         $unControleur->setTable ("citoyen");
         $where = array("idCit"=>$idCit2);
-        $tab = array("situationFamilialeCit"=>"Divorcé(e)"
+        $tab = array("situationFamilialeCit"=>"Divorce(e)"
         );
         $unControleur->update ($tab, $where);  
     }
@@ -83,14 +83,14 @@ function ValiderDemandePluriel($idDemande)
     {
         $unControleur->setTable ("citoyen");
         $where = array("idCit"=>$idCit1);
-        $tab = array("situationFamilialeCit"=>"Pacsé(e)"
+        $tab = array("situationFamilialeCit"=>"Pacse(e)"
     );
         $unControleur->update ($tab, $where);  
     
     //updatecitoyen2    
         $unControleur->setTable ("citoyen");
         $where = array("idCit"=>$idCit2);
-        $tab = array("situationFamilialeCit"=>"Pacsé(e)"
+        $tab = array("situationFamilialeCit"=>"Pacse(e)"
         );
         $unControleur->update ($tab, $where);  
     }   

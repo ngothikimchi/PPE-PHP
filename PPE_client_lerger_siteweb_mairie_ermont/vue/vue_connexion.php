@@ -10,7 +10,7 @@
                 <div class="lien_connexion"><a href="gestion_mdp_oublie.php">Mot de pass oublié</a></div>
                 <input class="input_connexion" type="submit" name="SeConnecter" value="Se connecter">>
                 <div class="lien_connexion" style="color:black;">Vous n'avez pas le compte?</div>
-                <div class="lien_connexion bottom_lien_connexion" ><a href="#">Inscrivez-vous</a></div>    
+                <div class="lien_connexion bottom_lien_connexion" ><a href="index.php?page=inscrire">Inscrivez-vous</a></div>    
             </div>
 
         </div>

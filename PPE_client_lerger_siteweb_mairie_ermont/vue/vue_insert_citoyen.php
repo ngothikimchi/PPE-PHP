@@ -140,8 +140,8 @@
             "villeCit"=>$_POST["villeCit"], 
 			"cpCit"=>$_POST["cpCit"],
             "situationFamilialeCit"=>$_POST["situationFamilialeCit"],
-            "question"=>$_POST["question"],
-            "reponse"=>$_POST["reponse"]
+            "question"=>sha1($_POST["question"]),
+            "reponse"=>sha1($_POST["reponse"])
 			);
 		$unControleur->update ($tab, $where); 
         redirect("gestion_citoyen.php");
